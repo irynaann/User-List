@@ -14,7 +14,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter user id: ");
         int id = scanner.nextInt();
-        Optional<User> user = userRepository.findUserById(id);
+        userRepository.findUserById(id);
+        System.out.println("Enter user email: ");
+        String email = scanner.next();
+        userRepository.findUserByEmail(email);
 
 
     }

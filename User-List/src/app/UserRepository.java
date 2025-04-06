@@ -36,5 +36,8 @@ public class UserRepository {
         return user;
     }
 
+    public Optional<List<User>> findAllUsers() {
+        return Optional.ofNullable(userList);
+    }
 
 }

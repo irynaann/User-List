@@ -51,7 +51,12 @@ public class UserRepository {
     }
 
     public Optional<List<User>> findAllUsers() {
-        return Optional.ofNullable(userList);
+        Optional<List<User>> user = Optional.ofNullable(userList);
+        if (user.isPresent()) {
+            System.out.println("Total users: " + userList.size());
+        } else {
+            System.out.println("No users found");
+        }
+        return user;
     }
-
 }

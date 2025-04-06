@@ -1,6 +1,5 @@
 package app;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {

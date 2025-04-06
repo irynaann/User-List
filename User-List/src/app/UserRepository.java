@@ -14,7 +14,7 @@ public class UserRepository {
         userList.add(new User(3, "Cat", "cat@example.com"));
     }
 
-    public Optional<User> findUserById(int id) {
+    public void findUserById(int id) {
         Optional<User> user = userList.stream()
                 .filter(u -> u.getId() == id)
                 .findFirst();
@@ -23,7 +23,6 @@ public class UserRepository {
                         + "\nUser name is " + u.getName() + "\nUser email is " + u.getEmail()),
                 () -> System.out.println("User id is not found")
         );
-        return user;
     }
 
     public Optional<User> findUserByEmail(String email) {

@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         UserRepository userRepository = new UserRepository();
+        userRepository.addUser();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter user id: ");
         int id = scanner.nextInt();

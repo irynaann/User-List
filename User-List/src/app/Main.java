@@ -17,12 +17,12 @@ public class Main {
         userRepository.findUserById(id);
         System.out.println("Enter user email: ");
         scanner.nextLine();
-        String email  = scanner.next();
+        String email = scanner.next();
         userRepository.findUserByEmail(email);
         System.out.println("Enter user name: ");
         scanner.nextLine();
-        String name  = scanner.next();
+        String name = scanner.next();
         userRepository.findUserByName(name);
-
+        userRepository.findAllUsers();
     }
 }

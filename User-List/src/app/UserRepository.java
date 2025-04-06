@@ -24,4 +24,17 @@ public class UserRepository {
         );
         return user;
     }
+
+    public Optional<User> findUserByEmail(String email) {
+        Optional<User> user = userList.stream()
+                .filter(u -> u.getEmail() == email)
+                .findFirst();
+        user.ifPresentOrElse(
+                u -> System.out.println("User email is " + u.getEmail()),
+                () -> System.out.println("User email is not found")
+        );
+        return user;
+    }
+
+
 }

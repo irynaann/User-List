@@ -1,7 +1,5 @@
 package app;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +8,10 @@ public class UserRepository {
 
     List<User> userList = new ArrayList<>();
 
-    public void addUser(User user) {
-        userList.add(user);
+    public void addUser() {
+        userList.add(new User(1, "Alice", "alice@example.com"));
+        userList.add(new User(2, "Mike", "mike@example.com"));
+        userList.add(new User(3, "Cat", "cat@example.com"));
     }
 
     public Optional<User> findUserById(int id) {

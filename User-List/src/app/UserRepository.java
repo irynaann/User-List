@@ -10,6 +10,10 @@ public class UserRepository {
 
     List<User> userList = new ArrayList<>();
 
+    public void addUser(User user) {
+        userList.add(user);
+    }
+
     public Optional<User> findUserById(int id) {
         Optional<User> user = userList.stream()
                 .filter(u -> u.getId() == id)

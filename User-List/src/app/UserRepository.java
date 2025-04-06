@@ -19,7 +19,8 @@ public class UserRepository {
                 .filter(u -> u.getId() == id)
                 .findFirst();
         user.ifPresentOrElse(
-                u -> System.out.println("User id is " + u.getId()),
+                u -> System.out.println("User id is " + u.getId()
+                        + "\nUser name is " + u.getName() + "\nUser email is " + u.getEmail()),
                 () -> System.out.println("User id is not found")
         );
         return user;
@@ -27,11 +28,24 @@ public class UserRepository {
 
     public Optional<User> findUserByEmail(String email) {
         Optional<User> user = userList.stream()
-                .filter(u -> u.getEmail() == email)
+                .filter(u -> u.getEmail().equals(email))
                 .findFirst();
         user.ifPresentOrElse(
-                u -> System.out.println("User email is " + u.getEmail()),
+                u -> System.out.println("User email is " + u.getEmail()
+                        + "\nUser id is " + u.getId() + "\nUser name is " + u.getName()),
                 () -> System.out.println("User email is not found")
+        );
+        return user;
+    }
+
+    public Optional<User> findUserByName(String name) {
+        Optional<User> user = userList.stream()
+                .filter(u -> u.getName().equals(name))
+                .findFirst();
+        user.ifPresentOrElse(
+                u -> System.out.println("User name is " + u.getName()
+                        + "\nUser id is " + u.getId() + "\nUser email is " + u.getEmail()),
+                () -> System.out.println("User name is not found")
         );
         return user;
     }

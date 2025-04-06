@@ -25,7 +25,7 @@ public class UserRepository {
         );
     }
 
-    public Optional<User> findUserByEmail(String email) {
+    public void findUserByEmail(String email) {
         Optional<User> user = userList.stream()
                 .filter(u -> u.getEmail().equals(email))
                 .findFirst();
@@ -34,10 +34,9 @@ public class UserRepository {
                         + "\nUser id is " + u.getId() + "\nUser name is " + u.getName()),
                 () -> System.out.println("User email is not found")
         );
-        return user;
     }
 
-    public Optional<User> findUserByName(String name) {
+    public void findUserByName(String name) {
         Optional<User> user = userList.stream()
                 .filter(u -> u.getName().equals(name))
                 .findFirst();
@@ -46,16 +45,15 @@ public class UserRepository {
                         + "\nUser id is " + u.getId() + "\nUser email is " + u.getEmail()),
                 () -> System.out.println("User name is not found")
         );
-        return user;
+
     }
 
-    public Optional<List<User>> findAllUsers() {
+    public void findAllUsers() {
         Optional<List<User>> user = Optional.ofNullable(userList);
         if (user.isPresent()) {
             System.out.println("Total users: " + userList.size());
         } else {
             System.out.println("No users found");
         }
-        return user;
     }
 }
